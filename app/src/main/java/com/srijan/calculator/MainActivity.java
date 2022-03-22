@@ -116,6 +116,15 @@ public class MainActivity extends AppCompatActivity {
                 operations.setText(data + "9");
             }
         });
+
+        zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data =  operations.getText().toString();
+                operations.setText(data + "0");
+            }
+        });
+
         ac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,14 +157,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 data =  operations.getText().toString();
-                operations.setText(data + "2");
+                operations.setText(data + "-");
             }
         });
         multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 data =  operations.getText().toString();
-                operations.setText(data + "x");
+                operations.setText(data + "X");
             }
         });
         division.setOnClickListener(new View.OnClickListener() {
@@ -166,12 +175,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 data = operations.getText().toString();
 
-                data=data.replaceAll("×","*");
+                data=data.replaceAll("X","*");
                 data=data.replaceAll("%","/100");
                 data=data.replaceAll("÷","/");
 
@@ -184,12 +194,6 @@ public class MainActivity extends AppCompatActivity {
                 finalResult=rhino.evaluateString(scriptable,data,"Javsscript",1,null).toString();
 
                 answer.setText(finalResult);
-            }
-        });
-        zero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                operations.setText( data + "0");
             }
         });
 
