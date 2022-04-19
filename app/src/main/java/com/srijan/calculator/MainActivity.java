@@ -2,6 +2,7 @@ package com.srijan.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView one,two,three,four,five,six,seven,eight,nine,ac,percent,remove;
+    TextView one,two,three,four,five,six,seven,eight,nine,ac,percent;
     TextView add,multiply,division,sub,equals;
     TextView zero,zero2,point;
     TextView operations,answer;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         nine = findViewById(R.id.nine);
         ac = findViewById(R.id.ac);
         percent = findViewById(R.id.percent);
-        remove =  findViewById(R.id.remove);
         equals = findViewById(R.id.equals);
 
         add = findViewById(R.id.add);
@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         zero = findViewById(R.id.zero);
         zero2 = findViewById(R.id.zero2);
         point = findViewById(R.id.point);
+
+        one.setClickable(true);
+        one.setFocusableInTouchMode(true);
+        one.setSelectAllOnFocus(true);
 
 
         one.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operations.setText(data + "6");
+                data =  operations.getText().toString();
+                operations.setText(data + "5");
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 data =  operations.getText().toString();
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 data =  operations.getText().toString();
@@ -118,10 +125,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         zero.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 data =  operations.getText().toString();
                 operations.setText(data + "0");
+            }
+        });
+
+        point.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                data =  operations.getText().toString();
+                operations.setText(data + ".");
             }
         });
 
@@ -139,13 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 operations.setText(data + "%");
             }
         });
-        remove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                data =  operations.getText().toString();
-                operations.setText("" + data);
-            }
-        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

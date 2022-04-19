@@ -62,6 +62,9 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         app:layout_constraintVertical_bias="0.0" >
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
@@ -79,7 +82,9 @@
                 android:text="AC"
                 android:textColor="#3cb371"
                 android:textSize="24sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold">
+
+            </TextView>
 
             <TextView
                 android:id="@+id/percent"
@@ -94,30 +99,17 @@
                 android:text="%"
                 android:textColor="#3cb371"
                 android:textSize="24sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold">
 
-            <TextView
-                android:id="@+id/remove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/percent"
-                android:background="@drawable/button_layout"
-                android:gravity="center_vertical|center_horizontal"
-                android:padding="5dp"
-                android:text="x"
-                android:textColor="#3cb371"
-                android:textSize="24sp"
-                android:textStyle="bold"></TextView>
+            </TextView>
 
             <TextView
                 android:id="@+id/division"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="125dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/remove"
+                android:layout_toRightOf="@+id/percent"
                 android:background="@drawable/button_layout"
                 android:gravity="center_vertical|center_horizontal"
                 android:padding="5dp"
@@ -367,7 +359,7 @@
                 android:id="@+id/nine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/remove"
+                android:layout_below="@+id/percent"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="32dp"
                 android:layout_toRightOf="@+id/eight"
@@ -417,5 +409,6 @@
             </TextView>
 
         </RelativeLayout>
+        </ScrollView>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
